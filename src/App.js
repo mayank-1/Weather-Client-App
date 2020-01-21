@@ -58,7 +58,7 @@ function App() {
         </h2>
       </div>
       <div className="row m-4">
-        <div className="col-4 p-0 mx-auto">
+        <div className="col-4 col-xs-12 mx-auto">
           <div className="list-group">
             <button
               type="radio"
@@ -106,7 +106,7 @@ function App() {
             </button>
           </div>
         </div>
-        <div className="col-5 mx-auto">
+        <div className="col-5 col-xs-12 mx-auto">
           <div className="title col text-center">
             <h3>
               {isDataPresent
