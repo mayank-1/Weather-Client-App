@@ -120,14 +120,17 @@ function App() {
           </div>
 
           <div className="image col-4 mx-auto">
-            <img
-              src={
-                "http://openweathermap.org/img/wn/" +
-                searchResult.city.iconId +
-                "@2x.png"
-              }
-              alt=""
-            />
+            {isDataPresent && (
+              <img
+                src={
+                  "http://openweathermap.org/img/wn/" +
+                  searchResult.city.iconId +
+                  "@2x.png"
+                }
+                alt=""
+              />
+            )}
+
             <div className="temp">
               <div className="temp text-center">
                 <h4>
