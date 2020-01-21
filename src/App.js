@@ -24,12 +24,10 @@ function App() {
   let [isDataPresent, setPresentData] = useState(false);
 
   let fetchDataFromServer = () => {
-    console.log(`Calling Weather API for zipcode ${zipcode}`);
     axios
       .get("https://weather-server-app.herokuapp.com/" + zipcode)
       .then(res => {
         if (res.data !== "INVALID") {
-          console.log(Object.keys(res).length);
           let city = {
             name: res.data.name,
             country: res.data.sys.country,
