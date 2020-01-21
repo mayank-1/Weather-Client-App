@@ -49,14 +49,14 @@ function App() {
   };
 
   return (
-    <div className="p-2 shadow mx-auto mt-4 col-10">
+    <div className="p-2 shadow mx-auto m-2 col-10">
       <div className="text-center">
         <h2>
           <span className="text-warning">Weather</span> App
         </h2>
       </div>
       <div className="row m-4">
-        <div className="col-4 col-xs-12 mx-auto">
+        <div className="col-md-4 col-xs-8 mx-auto">
           <div className="list-group">
             <button
               type="radio"
@@ -104,7 +104,7 @@ function App() {
             </button>
           </div>
         </div>
-        <div className="col-5 col-xs-12 mx-auto">
+        <div className="col-md-5 col-xs-8 mt-2 mx-auto">
           <div className="title col text-center">
             <h3>
               {isDataPresent
@@ -179,10 +179,10 @@ function App() {
                 </p>
               )}
             </div>
-            <div className="col-4 mx-auto">
+            <div className="col-4 pr-0 mx-auto">
               {isDataPresent && (
                 <p>
-                  Humidity:{" "}
+                  Humid:{" "}
                   <span className="text-warning">
                     {searchResult.city.humidity} %
                   </span>
