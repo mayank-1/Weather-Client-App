@@ -49,7 +49,7 @@ function App() {
   };
 
   return (
-    <div className="p-2 shadow mx-auto m-2 col-10">
+    <div className="p-2 shadow col-xs-12 mx-auto m-2 col-md-10">
       <div className="text-center">
         <h2>
           <span className="text-warning">Weather</span> App
