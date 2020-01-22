@@ -22,11 +22,14 @@ function App() {
   });
 
   let [isDataPresent, setPresentData] = useState(false);
+  let [loadSpinner, setSpinner] = useState(false);
 
   let fetchDataFromServer = () => {
+    setSpinner(true);
     axios
       .get("https://weather-server-app.herokuapp.com/" + zipcode)
       .then(res => {
+        setSpinner(false);
         if (res.data !== "INVALID") {
           let city = {
             name: res.data.name,
@@ -42,8 +45,8 @@ function App() {
             humidity: res.data.main.humidity
           };
 
-          setResult((searchResult = { city }));
-          setPresentData((isDataPresent = true));
+          setResult({ city });
+          setPresentData(true);
         }
       });
   };
@@ -64,7 +67,7 @@ function App() {
               name="radio"
               onClick={e => {
                 e.preventDefault();
-                changeZip((zipcode = e.target.value));
+                changeZip(e.target.value);
               }}
               className="list-group-item"
             >
@@ -76,7 +79,7 @@ function App() {
               name="radio"
               onClick={e => {
                 e.preventDefault();
-                changeZip((zipcode = e.target.value));
+                changeZip(e.target.value);
               }}
               className="list-group-item"
             >
@@ -88,7 +91,7 @@ function App() {
               name="radio"
               onClick={e => {
                 e.preventDefault();
-                changeZip((zipcode = e.target.value));
+                changeZip(e.target.value);
               }}
               className="list-group-item"
             >
@@ -105,6 +108,13 @@ function App() {
           </div>
         </div>
         <div className="col-md-5 col-xs-8 mt-2 mx-auto">
+          <div className="d-flex mt-4 justify-content-center">
+            {loadSpinner && (
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+            )}
+          </div>
           <div className="title col text-center">
             <h3>
               {isDataPresent
@@ -113,10 +123,11 @@ function App() {
                   "," +
                   searchResult.city.country +
                   ""
-                : "Choose a city"}
+                : loadSpinner
+                ? ""
+                : "Choose City"}
             </h3>
           </div>
-
           <div className="image col-4 mx-auto">
             {isDataPresent && (
               <img
